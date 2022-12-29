@@ -122,11 +122,18 @@ const app = createApp({
         item.id === id ? item.is_enabled = !item.is_enabled : ``;
       });
     };
+    // 產品列表項目排序
+    const itemSort = (attr) => {
+      products.value.sort((a, b) => {
+        return b[attr] - a[attr]; 
+      })
+    };
     return {
       products,
       tempProduct,
       openModal,
-      changeStatus
+      changeStatus,
+      itemSort,
     };
   }
 });
